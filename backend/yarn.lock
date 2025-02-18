@@ -228,6 +228,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@upstash/redis@npm:^1.34.4":
+  version: 1.34.4
+  resolution: "@upstash/redis@npm:1.34.4"
+  dependencies:
+    crypto-js: ^4.2.0
+  checksum: 30e11ee53a5905df06e5788c71f5f48b9edce79a607dfc89ebcbf8e304bacb18d7cc9ca7b0ccf2c529e84e5fb8d27a46ef0f382aa6bb96455360a1ce894451ad
+  languageName: node
+  linkType: hard
+
 "abbrev@npm:^3.0.0":
   version: 3.0.0
   resolution: "abbrev@npm:3.0.0"
@@ -331,6 +340,7 @@ __metadata:
     "@types/cors": ^2.8.17
     "@types/express": ^5.0.0
     "@types/node": ^22.12.0
+    "@upstash/redis": ^1.34.4
     concurrently: ^9.1.2
     cors: ^2.8.5
     dotenv: ^16.4.7
@@ -601,6 +611,13 @@ __metadata:
     shebang-command: ^2.0.0
     which: ^2.0.1
   checksum: 8d306efacaf6f3f60e0224c287664093fa9185680b2d195852ba9a863f85d02dcc737094c6e512175f8ee0161f9b87c73c6826034c2422e39de7d6569cf4503b
+  languageName: node
+  linkType: hard
+
+"crypto-js@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "crypto-js@npm:4.2.0"
+  checksum: f051666dbc077c8324777f44fbd3aaea2986f198fe85092535130d17026c7c2ccf2d23ee5b29b36f7a4a07312db2fae23c9094b644cc35f7858b1b4fcaf27774
   languageName: node
   linkType: hard
 

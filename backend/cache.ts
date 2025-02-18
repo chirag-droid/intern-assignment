@@ -1,8 +1,10 @@
-import NodeCache from "node-cache";
+import { Redis } from "@upstash/redis";
 
-const cache = new NodeCache({
-  stdTTL: 60 * 60, // 1 hours,
-  checkperiod: 60 * 30, // 1 hour
+import { redisUrl, redisToken } from "./config";
+
+const redis = new Redis({
+   url: redisUrl,
+   token: redisToken,
 });
 
-export default cache;
+export default redis;

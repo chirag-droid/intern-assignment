@@ -2,6 +2,8 @@
 
 1. I changed the frontend template to use vite build system instead of create-react-app since it was taking so much development time and I wasn't able to fine tune things like tsconfig.json
 
+2. Replaced the NodeCache with a hosted Redis instance on UpStash because I will be hosting the backend on Firebase Functions
+
 # Welcome to the alloan.ai frontend intern challenge!
 
 > This is an opening for the frontend engineer intern position at alloan.ai, a cutting-edge fintech startup building products for the asset-based securities market.  
