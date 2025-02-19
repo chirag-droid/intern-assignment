@@ -4,6 +4,8 @@
 
 2. Replaced the NodeCache with a hosted Redis instance on UpStash because I will be hosting the backend on Firebase Functions
 
+3. Hosted the backend express app as a firebase function.
+
 # Welcome to the alloan.ai frontend intern challenge!
 
 > This is an opening for the frontend engineer intern position at alloan.ai, a cutting-edge fintech startup building products for the asset-based securities market.  
