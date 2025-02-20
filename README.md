@@ -1,5 +1,11 @@
 # Submission - By Chirag
 
+## Frontend - https://alloanai.web.app/
+
+## Backend - https://api-c4czxvhuuq-el.a.run.app/
+
+## Redis - https://summary-toad-16656.upstash.io
+
 1. I changed the frontend template to use vite build system instead of create-react-app since it was taking so much development time and I wasn't able to fine tune things like tsconfig.json
 
 2. Replaced the NodeCache with a hosted Redis instance on UpStash because I will be hosting the backend on Firebase Functions

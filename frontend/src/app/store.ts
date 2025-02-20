@@ -2,10 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
 
 import trendingStocksReducer from "@/features/trending-stocks/slice";
+import stocksReducer from "@/features/stock-selection/slice";
+import stockPricesReducer from "@/features/stock-price-graph/slice";
 
 const store = configureStore({
    reducer: {
       trending: trendingStocksReducer,
+      stocks: stocksReducer,
+      stockPrices: stockPricesReducer,
    },
 });
 

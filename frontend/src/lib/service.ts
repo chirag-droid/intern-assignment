@@ -4,7 +4,6 @@ import { StockInformation, StockPriceHistory } from "./types";
 export async function getTrendingStocks() {
    // Ideally this was a fetch for the trending stocks
    const response = await client.get<StockInformation[]>(`/api/stocks`);
-   console.log(response)
    return response.data.slice(0, 3);
 }
 
