@@ -1,33 +1,28 @@
 {
-  "functions": [
-    {
-      "source": "backend",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run build"
-      ],
-      "runtime": "nodejs22"
-    }
-  ],
-  "hosting": {
-    "public": "frontend/dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
+   "functions": [
       {
-        "source": "**",
-        "destination": "/index.html"
+         "source": "backend",
+         "codebase": "default",
+         "ignore": [
+            "node_modules",
+            ".git",
+            "firebase-debug.log",
+            "firebase-debug.*.log",
+            "*.local"
+         ],
+         "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" run build"],
+         "runtime": "nodejs22"
       }
-    ]
-  }
+   ],
+   "hosting": {
+      "public": "frontend/dist",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "predeploy": ["yarn --cwd \"$RESOURCE_DIR\" run build"],
+      "rewrites": [
+         {
+            "source": "**",
+            "destination": "/index.html"
+         }
+      ]
+   }
 }
