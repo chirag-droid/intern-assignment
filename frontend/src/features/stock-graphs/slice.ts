@@ -10,8 +10,8 @@ import {
 
 const abortControllers: Record<string, AbortController> = {};
 
-export const addGraphThunk = createAsyncThunk(
-   "stocks/addGraph",
+export const fetchStockData = createAsyncThunk(
+   "stocks/fetchStockData",
    async ({ id, duration }: GetStockProps, { dispatch }) => {
       const controller = abortControllers[id] || new AbortController();
       abortControllers[id] = controller;
@@ -29,7 +29,7 @@ export const addGraphThunk = createAsyncThunk(
          ) {
             setTimeout(() => {
                if (!signal.aborted) {
-                  dispatch(addGraphThunk({ id, duration }));
+                  dispatch(fetchStockData({ id, duration }));
                }
             }, 100);
          }
@@ -72,7 +72,7 @@ const stockGraphsSlice = createSlice({
 
             // Dispatch outside reducer
             setTimeout(() => {
-               store.dispatch(addGraphThunk({ id, duration }));
+               store.dispatch(fetchStockData({ id, duration }));
             }, 0);
          }
       },
@@ -94,14 +94,14 @@ const stockGraphsSlice = createSlice({
 
             // Dispatch outside reducer
             setTimeout(() => {
-               store.dispatch(addGraphThunk({ id, duration }));
+               store.dispatch(fetchStockData({ id, duration }));
             }, 0);
          }
       },
    },
    extraReducers: (builder) => {
       builder
-         .addCase(addGraphThunk.pending, (state, action) => {
+         .addCase(fetchStockData.pending, (state, action) => {
             const { id, duration } = action.meta.arg;
             if (!state[id]) {
                state[id] = {
@@ -114,7 +114,7 @@ const stockGraphsSlice = createSlice({
                state[id].status = RequestStatus.LOADING;
             }
          })
-         .addCase(addGraphThunk.fulfilled, (state, action) => {
+         .addCase(fetchStockData.fulfilled, (state, action) => {
             const { id, duration } = action.meta.arg;
             const result = action.payload;
 
@@ -122,7 +122,7 @@ const stockGraphsSlice = createSlice({
             state[id].status = result.status;
             state[id].duration = duration;
          })
-         .addCase(addGraphThunk.rejected, (state, action) => {
+         .addCase(fetchStockData.rejected, (state, action) => {
             const { id } = action.meta.arg;
             if (!state[id]) return;
 
