@@ -6,6 +6,23 @@
 
 ## Redis - https://summary-toad-16656.upstash.io
 
+## Setup
+
+> You need to have Node.js and Yarn installed on your machine. You need to have an hosted Redis instance on Upstash.
+
+1. Install dependencies - `yarn`
+2. Start the backend - `yarn serve`
+3. Start the frontend - `yarn dev`
+
+Make sure to set the environment variables in the `.env` file in the backend and frontend folder.
+
+## Deployment
+
+1. Backend - `firebase deploy --only functions`
+2. Frontend - `firebase deploy --only hosting`
+
+## Notes
+
 1. I changed the frontend template to use vite build system instead of create-react-app since it was taking so much development time and I wasn't able to fine tune things like tsconfig.json
 
 2. Replaced the NodeCache with a hosted Redis instance on UpStash because I will be hosting the backend on Firebase Functions
