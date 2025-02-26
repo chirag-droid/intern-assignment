@@ -12,6 +12,8 @@
 
 3. Hosted the backend express app as a firebase function.
 
+4. Frankly my first time using Redux Thunk so my implementation for Abort Controllers was a bit weird i.e. cancelling previous request when user changes stock duration
+
 # Welcome to the alloan.ai frontend intern challenge!
 
 > This is an opening for the frontend engineer intern position at alloan.ai, a cutting-edge fintech startup building products for the asset-based securities market.  
