@@ -12,9 +12,15 @@ export async function getAllStocks() {
    return response.data;
 }
 
-export async function getStockWith({ id }: { id: string }) {
-   const response = await client.get<StockPriceHistory | []>(
-      `/api/stocks/${id}`
+export interface GetStockProps {
+   id: string;
+   duration: string;
+}
+
+export async function getStockWith({ id, duration }: GetStockProps) {
+   const response = await client.post<StockPriceHistory | []>(
+      `/api/stocks/${id}`,
+      { duration }
    );
    return response.data;
 }

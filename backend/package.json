@@ -4,7 +4,7 @@
    "scripts": {
       "build": "npx tsc",
       "build:watch": "npx tsc --watch",
-      "serve": "yarn build && firebase emulators:start --only functions",
+      "serve": "yarn build && firebase emulators:start --only functions,auth",
       "shell": "yarn build && firebase functions:shell",
       "start": "yarn shell",
       "deploy": "firebase deploy --only functions",

@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "@/app/store";
 import { getAllStocks } from "@/lib/service";
 import { RequestStatus, StockInformation } from "@/lib/types";
+import { RootState } from "@/app/store";
 
 interface StocksState {
-   stocksList: StockInformation[];
-   selectedStock?: string;
+   stocks: StockInformation[];
    status: RequestStatus;
    error?: string;
 }
@@ -21,22 +20,17 @@ export const fetchStocks = createAsyncThunk("stocks/all", async () => {
 });
 
 const initialState: StocksState = {
-   stocksList: [],
-   selectedStock: undefined,
+   stocks: [],
    status: RequestStatus.IDLE,
    error: undefined,
 };
 
-const stocksSlice = createSlice({
+// This reducer deals with fetching all stocks
+// asyncronously using redux thunk
+const allStocksSlice = createSlice({
    name: "stocks",
    initialState,
-   reducers: {
-      selectStock: (state, action: PayloadAction<string>) => {
-         if (state.stocksList.find((stock) => stock.id === action.payload)) {
-            state.selectedStock = action.payload;
-         }
-      },
-   },
+   reducers: {},
    extraReducers: (builder) => {
       builder
          .addCase(fetchStocks.pending, (state) => {
@@ -46,8 +40,7 @@ const stocksSlice = createSlice({
             fetchStocks.fulfilled,
             (state, action: PayloadAction<StockInformation[]>) => {
                state.status = RequestStatus.SUCCEEDED;
-               state.stocksList = action.payload;
-               state.selectedStock = action.payload[0].id;
+               state.stocks = action.payload;
             }
          )
          .addCase(fetchStocks.rejected, (state, action) => {
@@ -57,10 +50,6 @@ const stocksSlice = createSlice({
    },
 });
 
-export const selectAllStocks = (state: RootState) => state.stocks.stocksList;
-export const getSelectedStock = (state: RootState) =>
-   state.stocks.selectedStock;
+export const selectAllStocks = (state: RootState) => state.allStocks.stocks;
 
-export const { selectStock } = stocksSlice.actions;
-
-export default stocksSlice.reducer;
+export default allStocksSlice.reducer;

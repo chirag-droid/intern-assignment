@@ -51,6 +51,7 @@ const trendingStocksSlice = createSlice({
    },
 });
 
-export const selectTrendingStocks = (state: RootState) => state.trending.stocks;
+export const selectTrendingStocks = (state: RootState) =>
+   state.trendingStocks.stocks;
 
 export default trendingStocksSlice.reducer;
