@@ -15,7 +15,8 @@ export function parseShorthandDate(shorthand: string) {
    // Define unit mappings
    const units = {
       s: { method: "setSeconds", value: now.getSeconds() - value },
-      m: { method: "setMinutes", value: now.getMinutes() - value },
+      m: { method: "setMonth", value: now.getMonth() - value },
+      // m: { method: "setMinutes", value: now.getMinutes() - value },
       h: { method: "setHours", value: now.getHours() - value },
       d: { method: "setDate", value: now.getDate() - value },
       w: { method: "setDate", value: now.getDate() - value * 7 },
