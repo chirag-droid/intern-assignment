@@ -1,35 +1,10 @@
 # Submission - By Chirag
 
-## Frontend - https://alloanai.web.app/
+Frontend: https://alloanai.web.app/
 
-## Backend - https://api-c4czxvhuuq-el.a.run.app/
+Backend: https://api-c4czxvhuuq-el.a.run.app/
 
-## Redis - https://summary-toad-16656.upstash.io
-
-## Setup
-
-> You need to have Node.js and Yarn installed on your machine. You need to have an hosted Redis instance on Upstash.
-
-1. Install dependencies - `yarn`
-2. Start the backend - `yarn serve`
-3. Start the frontend - `yarn dev`
-
-Make sure to set the environment variables in the `.env` file in the backend and frontend folder.
-
-## Deployment
-
-1. Backend - `firebase deploy --only functions`
-2. Frontend - `firebase deploy --only hosting`
-
-## Notes
-
-1. I changed the frontend template to use vite build system instead of create-react-app since it was taking so much development time and I wasn't able to fine tune things like tsconfig.json
-
-2. Replaced the NodeCache with a hosted Redis instance on UpStash because I will be hosting the backend on Firebase Functions
-
-3. Hosted the backend express app as a firebase function.
-
-4. Frankly my first time using Redux Thunk so my implementation for Abort Controllers was a bit weird i.e. cancelling previous request when user changes stock duration
+Redis: https://summary-toad-16656.upstash.io
 
 # Welcome to the alloan.ai frontend intern challenge!
 
@@ -127,28 +102,35 @@ Eg.
 
 ### What we want to see (mandatory)
 
--  A dropdown where the user can select a stock
--  A way to switch between durations for the selected stock
--  A graph for the selected stock and duration (remember the second API returns data over time - this graph should be updated dynamically)
--  Make it responsive and look good!
+-  [x] A dropdown where the user can select a stock
+
+-  [x] A way to switch between durations for the selected stock
+-  [x] A graph for the selected stock and duration (remember the second API returns data over time - this graph should be updated dynamically)
+-  [x] Make it responsive and look good!
 
 ### Tech constraints (mandatory)
 
--  Use Redux Toolkit for managing global state, thunk for API calls
--  Don't drill props beyond level 2
--  Use pre-built components and libraries (we use MUI and react-chartjs, but you are free to use any lib of your choice)
+-  [x] Use Redux Toolkit for managing global state, thunk for API calls
+-  [x] Don't drill props beyond level 2
+-  [x] Use pre-built components and libraries (we use MUI and react-chartjs, but you are free to use any lib of your choice)
 
 ### Brownie points (optional),
 
--  if you can show multiple graphs at the same time
--  if you can host it and share a link
--  if you can add login with a basic 2FA implementation (we use Firebase!)
+-  [x] if you can show multiple graphs at the same time
+-  [x] if you can host it and share a link
+-  [ ] if you can add login with a basic 2FA implementation (we use Firebase!)
 
 ## Running services
 
 ### Instructions to run the UI
 
-_enter details here!_
+> You need to have Node.js and Yarn installed on your machine. You need to have an hosted Redis instance on Upstash.
+
+1. Install dependencies - `yarn`
+2. Start the backend - `yarn serve`
+3. Start the frontend - `yarn dev`
+
+Make sure to set the environment variables in the `.env` file in the backend and frontend folder.
 
 ### Add a demonstration video
 
@@ -159,5 +141,20 @@ _make a demonstration video showcasing frontend not longer than 2-3min, just exp
 ```bash
 cd backend
 yarn # or npm, to install dependencies
-yarn start # or npm start, to...start?
+yarn serve # or npm start, to...start?
 ```
+
+## Deployment
+
+1. Backend - `firebase deploy --only functions`
+2. Frontend - `firebase deploy --only hosting`
+
+## Notes
+
+1. I changed the frontend template to use vite build system instead of create-react-app since it was taking so much development time and I wasn't able to fine tune things like tsconfig.json
+
+2. Replaced the NodeCache with a hosted Redis instance on UpStash because I will be hosting the backend on Firebase Functions
+
+3. Hosted the backend express app as a firebase function.
+
+4. Frankly my first time using Redux Thunk so my implementation for Abort Controllers was a bit weird i.e. cancelling previous request when user changes stock duration
