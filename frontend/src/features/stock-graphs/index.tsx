@@ -23,15 +23,17 @@ export default function TrackedStocks() {
 
    return (
       <section>
-         <div className="flex justify-between">
-            <div className="flex space-x-4">
+         <div className="flex space-x-2 items-end">
+            <div>
                <h1 className="text-xl md:text-2xl font-medium">
                   Tracked Stock
                </h1>
-               <StocksDropdown onSelect={onAdd} />
+               <p className="text-neutral-500">
+                  You can clear the cache to see the data polled in real time.
+               </p>
             </div>
-
-            <Button onClick={clearCache} variant="destructive">
+            <StocksDropdown onSelect={onAdd} />
+            <Button size="sm" onClick={clearCache} variant="destructive">
                Clear Cache
             </Button>
          </div>
